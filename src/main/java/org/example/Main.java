@@ -33,12 +33,14 @@ public class Main {
         if (numb < 0) {
             return "Invalid Value";
         }
+
         String[] onedigit = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-        char[] numbers = String.valueOf(numb).toCharArray();
-        String[] word = new String[numbers.length];
-        for (int x = 0; x < numbers.length; x++) {
-            word[x] = onedigit[Character.getNumericValue(numbers[x])];
+        StringBuilder word = new StringBuilder();
+
+        for (char digit : String.valueOf(numb).toCharArray()) {
+            word.append(onedigit[Character.getNumericValue(digit)]).append(" ");
         }
-        return String.join(" ", word);
+
+        return word.toString().trim();
     }
 }
